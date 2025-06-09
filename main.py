@@ -5,6 +5,7 @@ from datetime import datetime, date
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Integer, String, Text, Float, Boolean, ForeignKey, DateTime
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+# use pip install bootstrap-flask to install the bootstrap package
 from flask_bootstrap import Bootstrap
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_ckeditor import CKEditor
