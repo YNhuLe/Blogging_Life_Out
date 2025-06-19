@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Integer, String, Text, Float, Boolean, ForeignKey, DateTime
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 # use pip install bootstrap-flask to install the bootstrap package
-from flask_bootstrap import Bootstrap
+from flask_bootstrap import Bootstrap5
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_ckeditor import CKEditor
 import hashlib
@@ -22,7 +22,7 @@ app = Flask(__name__)
 app.config['WTF_CSRF_ENABLED'] = True
 load_dotenv()
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-Bootstrap(app)
+Bootstrap5(app)
 ckeditor = CKEditor(app)
 
 
@@ -34,7 +34,8 @@ class Base(DeclarativeBase):
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DB_URI')
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
-print(app.config['SQLALCHEMY_DATABASE_URI'])
+print('URI : ',app.config['SQLALCHEMY_DATABASE_URI'])
+
 
 
 # create User table for all registered users in database
@@ -366,4 +367,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(debug=False, port=5000)
+    app.run(debug=False,host="0.0.0.0", port=8000)
