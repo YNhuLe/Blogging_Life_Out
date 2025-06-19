@@ -1,30 +1,8 @@
 {% from "bootstrap5/form.html" import render_form %}
 {% include "header.html" %}
-
-<style>
-      .image{
-    width: 50px;
-    height: 50px;
-    }
-
-    .comment{
-    background-color:#DCE4C9;
-    margin-top:10px;
-    }
-
-    .ava{
-    border-radius: 50%;
-    }
-
-    .sub-text{
-    font-size: 15px;
-    color: grey;
-    }
-
-    .btn{
-    margin-top: 15px;
-    }
-</style>
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/post.css')}}">
+</head>
 
 
 <!-- Page Header-->
@@ -67,7 +45,7 @@ background-position:center;background-size:cover;background-repeat:no-repeat;">
                 {{ form.comment_text(novalidate=True) }}
                 {{ form.submit(class="btn btn-primary") }}
             </form>
-                <h1 class="comment">Leave comments:</h1>
+                <h1 class="comment-title">Leave comments:</h1>
                 {{ ckeditor.load() }}
                 {{ ckeditor.config(name='comment_text') }}
 
